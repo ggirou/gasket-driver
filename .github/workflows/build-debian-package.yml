@@ -22,8 +22,7 @@ jobs:
           lintian \
           devscripts \
           dh-dkms \
-          debhelper \
-          pve-headers-$(uname -r)
+          debhelper
 
     - name: Build .deb package
       run: |
