@@ -21,6 +21,7 @@ jobs:
           build-essential \
           lintian \
           devscripts \
+          dkms \
           dh-dkms \
           debhelper
 
