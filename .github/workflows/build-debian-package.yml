@@ -33,6 +33,15 @@ jobs:
       run: |
         mv ../gasket-dkms_1.0-18_all.deb ./gasket-dkms_1.0-18_all.deb
 
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: release-${{ github.run_id }}-${{ github.run_number }}
+        name: "Release ${{ github.run_id }} - ${{ github.run_number }} (Build ${{ steps.date.outputs.today }})"
+        files: gasket-dkms_1.0-18_all.deb
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Upload DEB artifact
       uses: actions/upload-artifact@v4.6.2
       with:
